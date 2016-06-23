@@ -16,7 +16,6 @@ public class BluetoothTreatmentConnection {
 
     public void startPairingDevice() {
         BluetoothSocket tmp = null;
-
     }
 
 

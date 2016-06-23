@@ -66,7 +66,7 @@ public class CustomDialogDiscoveredDevices extends RelativeLayout {
         loading.setVisibility(VISIBLE);
     }
 
-    @ItemClick
+    @ItemClick(R.id.list_discovered_devices)
     public void deviceToPairedSelected(int position) {
         dialogPresenter.deviceToPairedSelected(position);
     }
