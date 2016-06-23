@@ -2,6 +2,7 @@ package com.example.jonathan.bluetooth_project_iot.chat.view;
 
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -64,6 +65,7 @@ public class CustomDialogDiscoveredDevices extends RelativeLayout {
 
     public void showProgress() {
         loading.setVisibility(VISIBLE);
+        Log.d("","");
     }
 
     @ItemClick(R.id.list_discovered_devices)
