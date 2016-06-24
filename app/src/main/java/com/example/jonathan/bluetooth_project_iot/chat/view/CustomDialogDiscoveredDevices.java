@@ -65,7 +65,7 @@ public class CustomDialogDiscoveredDevices extends RelativeLayout {
 
     public void showProgress() {
         loading.setVisibility(VISIBLE);
-        Log.d("","");
+        Log.d("","dsds");
     }
 
     @ItemClick(R.id.list_discovered_devices)
