@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".connectMain.view.ConnectActivity">
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/search_new_device_button"
+        android:layout_alignParentRight="true"
+        android:layout_margin="6dp"
+        android:text="@string/procurar_connect_button" />
+
+
+    <ListView
+        android:id="@+id/connect_device_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/search_new_device_button"
+        android:layout_margin="12dp"
+        android:divider="@color/colorAccent"
+        android:background="@drawable/shape_corner_listview_connect"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_not_found_device"
+        android:textSize="12sp"
+        android:visibility="invisible"
+        android:textColor="@android:color/black"
+        android:layout_centerInParent="true"
+        android:text="Não foi possível encontrar nenhum dispositivo."/>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/loading"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

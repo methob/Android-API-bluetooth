@@ -1,4 +1,4 @@
-package com.example.jonathan.bluetooth_project_iot.chat.view;
+package com.example.jonathan.bluetooth_project_iot.connectMain.view;
 
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
@@ -11,9 +11,8 @@ import org.androidannotations.annotations.RootContext;
 
 import java.util.List;
 
-
 @EBean
-public class ListDevicesDialogAdapter extends BaseAdapter {
+public class FoundDevicesAdapter extends BaseAdapter {
 
     @RootContext
     Context context;
@@ -41,17 +40,16 @@ public class ListDevicesDialogAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
-        ListDevicesDialogItemView listDevicesDialogItemView;
+        FoundDevicesItemView foundDevicesItemView;
 
         if (convertView == null) {
-            listDevicesDialogItemView = ListDevicesDialogItemView_.build(context);
+            foundDevicesItemView = FoundDevicesItemView_.build(context);
         } else {
-            listDevicesDialogItemView = (ListDevicesDialogItemView) convertView;
+            foundDevicesItemView = (FoundDevicesItemView) convertView;
         }
 
-        listDevicesDialogItemView.bind(devices.get(position));
+        foundDevicesItemView.bind(devices.get(position));
 
-        return listDevicesDialogItemView;
+        return foundDevicesItemView;
     }
 }

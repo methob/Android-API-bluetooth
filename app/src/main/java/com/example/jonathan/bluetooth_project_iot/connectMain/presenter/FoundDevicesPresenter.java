@@ -1,39 +1,57 @@
-package com.example.jonathan.bluetooth_project_iot.chat.presenter;
+package com.example.jonathan.bluetooth_project_iot.connectMain.presenter;
 
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
+import android.content.Intent;
 import android.content.IntentFilter;
 
-import com.example.jonathan.bluetooth_project_iot.chat.view.CustomDialogDiscoveredDevices;
+import com.example.jonathan.bluetooth_project_iot.IBasePresenter;
+import com.example.jonathan.bluetooth_project_iot.connectMain.view.ConnectActivity;
 import com.example.jonathan.bluetooth_project_iot.events.DiscoveredNewDeviceEvent;
 import com.example.jonathan.bluetooth_project_iot.utils.BluetoothTreatmentConnection;
 import com.example.jonathan.bluetooth_project_iot.utils.BroadcastReceiverNewDevices;
 
+import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EBean;
+import org.androidannotations.annotations.RootContext;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 
-/**
- * Created by Jonathan on 22/06/2016.
- */
-
 @EBean
-public class DialogPresenter implements IBasePresenter {
+public class FoundDevicesPresenter implements IBasePresenter {
 
+    @RootContext
+    Context context;
+
+    ConnectActivity activity;
     private ArrayList<BluetoothDevice> devices;
     private BroadcastReceiverNewDevices broadcastReceiver;
-    private Context context;
 
-    private CustomDialogDiscoveredDevices customDialogDiscoveredDevices;
+    private int REQUEST_ENABLE_BT = 100;
 
-    public DialogPresenter(Context context) {
-        this.context = context;
+    @AfterInject
+    public void afterInject() {
         devices = new ArrayList<>();
         startReceiver();
+    }
+
+    @Override
+    public void setInstance(Object object) {
+        activity = (ConnectActivity) object;
+    }
+
+    public void checkBluetoothIsEnable() {
+
+        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+
+        if (!mBluetoothAdapter.isEnabled()) {
+            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            activity.startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+        }
     }
 
     private void startReceiver() {
@@ -46,9 +64,17 @@ public class DialogPresenter implements IBasePresenter {
 
     public void startDiscovered() {
         devices.clear();
-        customDialogDiscoveredDevices.setListAdapter(devices);
-        customDialogDiscoveredDevices.showProgress();
+        activity.setListAdapter(devices,false);
+        activity.showProgress();
         searchNewDevices();
+    }
+
+    public void registerEvent() {
+        EventBus.getDefault().register(this);
+    }
+
+    public void unregisterEvent() {
+        EventBus.getDefault().unregister(this);
     }
 
     @Background
@@ -65,7 +91,7 @@ public class DialogPresenter implements IBasePresenter {
         if (!discoveredNewDeviceEvent.isfinish())
             devices.add(discoveredNewDeviceEvent.getBluetoothDevice());
         else {
-            customDialogDiscoveredDevices.setListAdapter(devices);
+            activity.setListAdapter(devices,true);
         }
     }
 
@@ -74,16 +100,4 @@ public class DialogPresenter implements IBasePresenter {
         new BluetoothTreatmentConnection(bluetoothDevice).startPairingDevice();
     }
 
-    public void registerEvent() {
-        EventBus.getDefault().register(this);
-    }
-
-    public void unregisterEvent() {
-        EventBus.getDefault().unregister(this);
-    }
-
-    @Override
-    public void setInstance(Object object) {
-        this.customDialogDiscoveredDevices = (CustomDialogDiscoveredDevices) object;
-    }
 }

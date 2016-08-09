@@ -1,4 +1,4 @@
-package com.example.jonathan.bluetooth_project_iot.chat.view;
+package com.example.jonathan.bluetooth_project_iot.connectMain.view;
 
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
@@ -10,11 +10,8 @@ import com.example.jonathan.bluetooth_project_iot.R;
 import org.androidannotations.annotations.EViewGroup;
 import org.androidannotations.annotations.ViewById;
 
-/**
- * Created by Jonathan on 22/06/2016.
- */
-@EViewGroup(R.layout.dialog_list_devices_item_view)
-public class ListDevicesDialogItemView extends RelativeLayout {
+@EViewGroup(R.layout.item_view_list_found_devices)
+public class FoundDevicesItemView extends RelativeLayout {
 
     @ViewById
     TextView infoDeviceText;
@@ -25,7 +22,7 @@ public class ListDevicesDialogItemView extends RelativeLayout {
     @ViewById
     TextView state;
 
-    public ListDevicesDialogItemView(Context context) {
+    public FoundDevicesItemView(Context context) {
         super(context);
     }
 
@@ -35,14 +32,18 @@ public class ListDevicesDialogItemView extends RelativeLayout {
         String addressT = "Address: " + device.getAddress();
         infoDeviceText.setText(nome);
         address.setText(addressT);
+
+        checkStateOfDevice(device);
     }
 
-    public void getTextifDeviceisPaired(BluetoothDevice device) {
+    public void checkStateOfDevice(BluetoothDevice device) {
+
+        String status = "Status: ";
+
         if (device.getBondState() == BluetoothDevice.BOND_BONDED) {
-            state.setText("Estado: Pareado");
-        } else {
-            state.setText("Estado: Não Pareado");
+            state.setText(status+"Pareado");
+        } else if (device.getBondState() == BluetoothDevice.BOND_NONE) {
+            state.setText(status+"Não pareado");
         }
     }
-
 }

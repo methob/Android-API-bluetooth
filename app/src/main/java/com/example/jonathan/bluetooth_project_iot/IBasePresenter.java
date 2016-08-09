@@ -1,4 +1,4 @@
-package com.example.jonathan.bluetooth_project_iot.chat.presenter;
+package com.example.jonathan.bluetooth_project_iot;
 
 /**
  * Created by Jonathan on 23/06/2016.
