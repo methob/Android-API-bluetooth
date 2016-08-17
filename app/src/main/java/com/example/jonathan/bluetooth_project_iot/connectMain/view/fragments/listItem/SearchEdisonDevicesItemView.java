@@ -1,4 +1,4 @@
-package com.example.jonathan.bluetooth_project_iot.connectMain.view;
+package com.example.jonathan.bluetooth_project_iot.connectMain.view.fragments.listItem;
 
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
@@ -11,7 +11,7 @@ import org.androidannotations.annotations.EViewGroup;
 import org.androidannotations.annotations.ViewById;
 
 @EViewGroup(R.layout.item_view_list_found_devices)
-public class FoundDevicesItemView extends RelativeLayout {
+public class SearchEdisonDevicesItemView extends RelativeLayout {
 
     @ViewById
     TextView infoDeviceText;
@@ -22,7 +22,7 @@ public class FoundDevicesItemView extends RelativeLayout {
     @ViewById
     TextView state;
 
-    public FoundDevicesItemView(Context context) {
+    public SearchEdisonDevicesItemView(Context context) {
         super(context);
     }
 

@@ -2,9 +2,7 @@ package com.example.jonathan.bluetooth_project_iot.events;
 
 import android.bluetooth.BluetoothDevice;
 
-/**
- * Created by Jonathan on 22/06/2016.
- */
+
 public class DiscoveredNewDeviceEvent {
 
     BluetoothDevice bluetoothDevice;

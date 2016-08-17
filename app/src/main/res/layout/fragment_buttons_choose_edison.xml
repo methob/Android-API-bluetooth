@@ -1,0 +1,23 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context="com.example.jonathan.bluetooth_project_iot.connectMain.view.fragments.ButtonsChooseEdisonFragment">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/search_between_existing_macs"
+        android:layout_margin="6dp"
+        android:text="@string/macs_existentes_main_activity" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search_between_existing_macs"
+        android:id="@+id/add_new_mac_button"
+        android:layout_margin="6dp"
+        android:text="@string/add_new_mac_main_activity" />
+
+</RelativeLayout>

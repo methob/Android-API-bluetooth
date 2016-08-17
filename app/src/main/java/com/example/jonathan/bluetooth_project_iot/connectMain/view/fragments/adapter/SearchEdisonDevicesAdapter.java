@@ -1,4 +1,4 @@
-package com.example.jonathan.bluetooth_project_iot.connectMain.view;
+package com.example.jonathan.bluetooth_project_iot.connectMain.view.fragments.adapter;
 
 import android.bluetooth.BluetoothDevice;
 import android.content.Context;
@@ -6,13 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.example.jonathan.bluetooth_project_iot.connectMain.view.fragments.listItem.SearchEdisonDevicesItemView;
+import com.example.jonathan.bluetooth_project_iot.connectMain.view.fragments.listItem.SearchEdisonDevicesItemView_;
+
 import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.RootContext;
 
 import java.util.List;
 
 @EBean
-public class FoundDevicesAdapter extends BaseAdapter {
+public class SearchEdisonDevicesAdapter extends BaseAdapter {
 
     @RootContext
     Context context;
@@ -40,12 +43,12 @@ public class FoundDevicesAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        FoundDevicesItemView foundDevicesItemView;
+        SearchEdisonDevicesItemView foundDevicesItemView;
 
         if (convertView == null) {
-            foundDevicesItemView = FoundDevicesItemView_.build(context);
+            foundDevicesItemView = SearchEdisonDevicesItemView_.build(context);
         } else {
-            foundDevicesItemView = (FoundDevicesItemView) convertView;
+            foundDevicesItemView = (SearchEdisonDevicesItemView) convertView;
         }
 
         foundDevicesItemView.bind(devices.get(position));

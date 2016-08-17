@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="8dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginStart="8dp"
+    android:animateLayoutChanges="true"
+    tools:context="com.example.jonathan.bluetooth_project_iot.connectMain.view.fragments.AddNewEdisonMacFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:id="@+id/back_button"
+        android:tint="@android:color/white"
+        android:src="@drawable/ic_keyboard_backspace_black_24dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:id="@+id/text_exp_mask_mac"
+        android:text="Adicione um Mac de uma Edison com a seguinte máscara XX:XX:XX:XX:XX:XX"
+        android:textSize="24sp"
+        android:layout_below="@+id/back_button"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edittext_add_mac"
+        android:drawableLeft="@android:drawable/stat_sys_data_bluetooth"
+        android:paddingBottom="15dp"
+        android:layout_below="@id/text_exp_mask_mac" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Adicionar"
+        android:layout_below="@+id/edittext_add_mac"
+        />
+
+
+</RelativeLayout>

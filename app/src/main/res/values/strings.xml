@@ -2,4 +2,9 @@
     <string name="app_name">Bluetooth_Project_IOT</string>
     <string name="sair_connect_button">Sair</string>
     <string name="procurar_connect_button">Procurar dispositivos</string>
+    <string name="macs_existentes_main_activity">Buscar dentre Macs Existentes</string>
+    <string name="add_new_mac_main_activity">Adicionar novo Mac</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

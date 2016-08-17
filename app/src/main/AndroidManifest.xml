@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".connectMain.view.ConnectActivity_">
+        <activity android:name=".connectMain.view.ChooseEdisonMainActivity_">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,7 +21,7 @@
         </activity>
 
         <receiver
-            android:name=".utils.BroadcastReceiverNewDevices"
+            android:name=".connectMain.presenter.BroadcastReceiverNewDevices"
             android:enabled="true"
             android:exported="true">
             <intent-filter>

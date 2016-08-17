@@ -6,21 +6,18 @@ import android.support.v7.app.AppCompatActivity;
 
 import org.greenrobot.eventbus.EventBus;
 
-/**
- * Created by Jonathan on 21/06/2016.
- */
+
 public class BaseActivity extends AppCompatActivity {
 
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
-        EventBus.getDefault().register(this);
-    }
+    public void onBackPressed() {
 
-    @Override
-    protected void onDestroy() {
-        EventBus.getDefault().unregister(this);
-        super.onDestroy();
-    }
+        int count = getSupportFragmentManager().getBackStackEntryCount();
 
+        if (count == 0) {
+            super.onBackPressed();
+        } else {
+            getSupportFragmentManager().popBackStack();
+        }
+    }
 }
